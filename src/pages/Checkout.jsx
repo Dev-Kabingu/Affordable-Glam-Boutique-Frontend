@@ -31,9 +31,9 @@ const Checkout = () => {
     console.log('Order Submitted:', formData);
   
     try {
-      // Send the order data to the backend
-      const response = await axios.post('/api/orders', {
-        ...formData,  // Spread the form data
+
+      const response = await axios.post('http://localhost:5000/api/orders', {
+        ...formData,  
         totalAmount: subtotal,  // Include the total amount in the order data
         status: 'Pending',  // Default order status
       });

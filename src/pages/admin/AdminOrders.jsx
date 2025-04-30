@@ -10,7 +10,8 @@ const AdminOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const { data } = await axios.get('/api/orders/admin/orders');
+        const { data } = await axios.get('http://localhost:5000/api/orders/admin/orders');
+
         
         // Ensure we get an array
         if (Array.isArray(data)) {
@@ -45,7 +46,8 @@ const AdminOrders = () => {
 
   const handleDelete = async (orderId) => {
     try {
-      await axios.delete(`/api/orders/admin/orders/${orderId}`);
+      await axios.delete(`http://localhost:5000/api/orders/admin/orders/${orderId}`);
+
       
       // Remove the deleted order from state (both orders and filteredOrders)
       const updatedOrders = orders.filter((order) => order._id !== orderId);
